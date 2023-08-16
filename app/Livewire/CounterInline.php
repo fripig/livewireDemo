@@ -6,11 +6,16 @@ use Livewire\Component;
 
 class CounterInline extends Component
 {
+    public function getCount(): void
+    {
+        $this->count = rand(50,999999);
+    }
     public function render()
     {
         return <<<'HTML'
         <div>
-            {{-- Nothing in the world is as soft and yielding as water. --}}
+        線上人數 : {{ $count }}
+        <button wire:click="getCount">update</button>
         </div>
         HTML;
     }
